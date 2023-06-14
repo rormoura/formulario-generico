@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!--viewport é a área visível de uma página web por um user.
+    Essa config acima faz com que a largura da página siga a
+    largura da tela do dispositivo utilizado pelo user.-->
+    <link rel="stylesheet" href="./form.css">
+    <h1 class="titulo">FORMULÁRIO GENÉRICO</h1>
+  </head>
+  <body>
+    <form class="formulário" id="formulário" action="./form_enviado.html" method="post">
+    <div class="acima_termos">
+      <div class="coluna_1">
+        <div class="nome">  <!--NOME-->
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
+        </div>
+      </div>
+      
+      <div class="coluna_2">
+        <div class="sobrenome">     <!--SOBRENOME-->
+          <label for="sobrenome">Sobrenome:</label>
+          <input type="text" id="sobrenome" name="sobrenome" required />
+        </div>
+      </div>
+<!------------------------------------------------------------------>        
+      <div class="coluna_1">
+        <div class="email">  <!--EMAIL-->
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+
+      <div class="coluna_2">  
+        <div class="CPF"><!--CPF-->
+          <label for="CPF" data-errormsg="">CPF:</label>
+          <input type="text" id="CPF" name="CPF"
+          maxlength="14" required />
+        </div>
+      </div>
+<!------------------------------------------------------------------>
+      <div class="coluna_1">
+        <div class="gênero">  <!--GÊNERO-->
+          <label for="gênero">Gênero:
+          <input type="radio" id="masculino" name="gênero" value="masculino" required > Masculino </input>
+          <input type="radio" id="feminino" name="gênero" value="feminino" required > Feminino </input>
+          </label>
+        </div>
+      </div>
+
+      <div class="coluna_2">
+        <div class="nascimento">
+              <!--DATA DE NASCIMENTO-->
+          <label for="nascimento">Data de Nascimento:</label>
+          <input type="date" id="nascimento" name="nascimento" required />
+        </div>
+      </div>
+<!------------------------------------------------------------------>
+      <div class="coluna_1">
+        <div class="endereço">  <!--ENDEREÇO-->
+          <label for="endereço">Endereço:</label>
+          <input type="text" id="endereço" name="endereço" required />
+        </div>
+      </div>
+
+      <div class="coluna_2">
+        <div class="celular">      <!--NÚMERO DE CELULAR-->
+          <label for="celular">Número de Celular:</label>
+          <input type="text" id="celular" name="celular"
+          maxlength="14" required />
+        </div>
+      </div>
+<!------------------------------------------------------------------>
+      <div class="coluna_1">
+        <div class="profissão">  <!--PROFISSÃO-->
+          <label for="profissão">Profissão:</label>
+          <input type="text" id="profissão" name="profissão" required />
+        </div>
+      </div>
+
+      <div class="coluna_2">
+        <div class="informações_adicionais">
+              <!--INFORMAÇÕES ADICIONAIS-->
+          <label for="informações_adicionais">Informações adicionais:</label>
+          <textarea id="informações_adicionais" name="informações_adicionais"
+          placeholder="Se você tiver algo a acrescentar, preencha aqui."
+          rows="2" cols="26"></textarea>
+        </div>
+      </div>
+<!------------------------------------------------------------------>
+      <div class="coluna_1">
+        <div class="estado">  <!--ESTADO-->
+          <label for="estado">Estado:</label>
+          <select id="estado" name="estado" required >
+          </select>
+        </div>
+      </div>
+
+      <div class="coluna_1">
+        <div class="cidade">      <!--CIDADE-->
+          <label for="cidade">Cidade:</label>
+          <select id="cidade" name="cidade" required >
+          </select>
+        </div>
+      </div>
+<!------------------------------------------------------------------>
+      <div class="coluna_2">
+        <div class="senha">  <!--SENHA-->
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required />
+        </div>
+
+        <div class="confirmação_senha"><!--CONFIRMAÇÃO DE SENHA-->
+          <label for="confirmação_senha">Confirmação de Senha:</label>
+          <input type="password" id="confirmação_senha" name="confirmação_senha" required />
+        </div>
+      </div>
+    </div>
+<!------------------------------------------------------------------>
+        <div class="termos">  <!--TERMOS E CONDIÇÕES-->
+          <p class="leio_termos">Leia e concorde com os termos e condições antes de prosseguir.</p>
+          
+          <hr/>  
+          <div>
+                        <h1> Termos de Uso </h1>
+            <h3>
+              Bem-vindo! Antes de prosseguir com o uso do nosso formulário,
+              solicitamos que você leia atentamente os termos a seguir. Ao
+              utilizar este formulário, você concorda com todos os termos e
+              condições estabelecidos abaixo:
+            </h3>
+
+            <ol>
+              <li>
+                Uso Responsável: Ao utilizar este formulário, comprometa-se a
+                fornecer informações verdadeiras, precisas e atualizadas. Você é
+                responsável pela veracidade dos dados fornecidos e pelo uso
+                adequado do formulário.
+              </li>
+              <br>
+              <li>
+                Privacidade: Respeitamos sua privacidade e estamos empenhados em
+                proteger suas informações pessoais. Os dados fornecidos neste
+                formulário serão coletados e processados de acordo com a nossa
+                Política de Privacidade. Não compartilharemos suas informações com
+                terceiros, exceto quando necessário para o processamento e envio
+                do formulário.
+              </li>
+              <br>
+              <li>
+                Propriedade Intelectual: Todo o conteúdo presente neste
+                formulário, incluindo textos, imagens, logotipos e outros
+                elementos, é protegido por direitos autorais e outras leis de
+                propriedade intelectual. É proibida a reprodução, distribuição ou
+                uso não autorizado de qualquer conteúdo presente neste formulário.
+              </li>
+              <br>
+              <li>
+                Responsabilidade: O uso deste formulário é por sua conta e risco.
+                Não nos responsabilizamos por quaisquer danos diretos, indiretos,
+                incidentais, consequenciais ou outros que possam surgir do uso
+                deste formulário, incluindo perda de dados, interrupção do serviço
+                ou qualquer outro tipo de prejuízo.
+              </li>
+              <br>
+              <li>
+                Alterações nos Termos: Podemos modificar estes termos a qualquer
+                momento, sem aviso prévio. Recomendamos que você revise
+                periodicamente os termos para estar ciente de quaisquer
+                alterações. O uso contínuo do formulário após a publicação das
+                alterações constitui sua aceitação dos termos revisados.
+              </li>
+              <br>
+              <li>
+                Encerramento do Acesso: Reservamo-nos o direito de encerrar seu
+                acesso a este formulário a qualquer momento, por qualquer motivo,
+                sem aviso prévio.
+              </li>
+            </ol>
+
+            <p>
+              Ao utilizar este formulário, você concorda em cumprir todos os
+              termos e condições aqui estabelecidos. Se você não concorda com
+              algum desses termos, pedimos que não utilize o formulário. Caso
+              tenha alguma dúvida ou precise de mais informações, entre em contato
+              conosco.
+            </p>
+            <p>Obrigado por utilizar nosso formulário!</p>
+          </div>
+          <hr/>  
+
+          <p class="aceito_termos">Aceito os termos e condições:
+              <input type="checkbox" required> <!--se aceita ou n as condições-->
+          </p>
+          <button type="reset" id="limpar">Limpar</button> <!--botão para passar o vanish-->
+          <button type="submit" id="enviar">Enviar</button> <!--botão para enviar o forms-->
+        </div>
+      </form>
+      <script src="./form.js"></script>
+  </body>
+</html>
+

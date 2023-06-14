@@ -1,0 +1,41 @@
+/*informações da parte de cima dos termos e dos termos*/
+
+.acima_termos{
+    font-family: Arial, sans-serif;
+    border: 5px solid black;
+    border-radius: 30px;
+}
+
+.termos{
+    font-family: Arial, sans-serif;
+    > .leio_termos{
+        color: red;
+    }
+
+    > .aceito_termos{
+        color: red;
+
+        > input[type=checkbox]{
+            border: 2px solid red;
+        }
+    }
+}
+
+/*informações do título*/
+
+.titulo{
+    text-align: center;
+    color:black;
+}
+
+/*informações das colunas 1 e 2*/
+
+.acima_termos .coluna_1{
+    margin: 10px 500px 10px 300px;
+    word-spacing: 10px;
+}
+
+.acima_termos .coluna_2{
+    margin: 10px 100px 10px 900px;
+    word-spacing: 10px;
+}
