@@ -57,8 +57,8 @@ olho_senha.addEventListener('click', function (e) {
 
 
 //olhinho da confirmação da senha
-const olho_confirmação_senha = document.querySelector('#olho_confirmação_senha');
-const confirmação_senha = document.querySelector('#confirmação_senha');
+var olho_confirmação_senha = document.querySelector('#olho_confirmação_senha');
+var confirmação_senha = document.querySelector('#confirmação_senha');
 
 olho_confirmação_senha.addEventListener('click', function (e) {
     const type = confirmação_senha.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -131,7 +131,6 @@ const send = function(ev){
         //there are some errors to display
         fails.forEach(function(obj){
             let field = document.getElementById(obj.input);
-            console.log(obj.msg)
             field.setCustomValidity(obj.msg);
             field.reportValidity();
         })
@@ -201,12 +200,12 @@ const validate = function(ev){
     }
 
     var estado = document.getElementById("estado");
-    if(estado.value === ''){
+    if(estado.value === 'Selecione um estado'){
         failures.push({input:'estado', msg:'Preencha o estado.'})
     }
 
     var cidade = document.getElementById("cidade");
-    if(cidade.value === ''){
+    if(cidade.value === 'Selecione uma cidade'){
         failures.push({input:'cidade', msg:'Preencha a cidade.'})
     }
 

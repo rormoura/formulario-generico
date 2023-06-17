@@ -1,3 +1,9 @@
+/*informações do background*/
+.corpo{
+    background: rgb(174,238,221);
+    background: radial-gradient(circle, rgba(174,238,221,1) 0%, rgba(192,236,191,1) 100%);
+}
+
 /*informações da parte de cima dos termos e dos termos*/
 
 .acima_termos{
