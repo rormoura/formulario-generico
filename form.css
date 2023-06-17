@@ -39,3 +39,8 @@
     margin: 10px 100px 10px 900px;
     word-spacing: 10px;
 }
+
+/*para tiar o olho da senha default do ms edge e internet explorer*/
+input::-ms-clear, input::-ms-reveal {
+    display: none;
+}

@@ -6,7 +6,9 @@
     <!--viewport é a área visível de uma página web por um user.
     Essa config acima faz com que a largura da página siga a
     largura da tela do dispositivo utilizado pelo user.-->
+
     <link rel="stylesheet" href="./form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <h1 class="titulo">FORMULÁRIO GENÉRICO</h1>
   </head>
   <body>
@@ -15,21 +17,21 @@
       <div class="coluna_1">
         <div class="nome">  <!--NOME-->
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" required />
+          <input type="text" id="nome" name="nome"  />
         </div>
       </div>
       
       <div class="coluna_2">
         <div class="sobrenome">     <!--SOBRENOME-->
           <label for="sobrenome">Sobrenome:</label>
-          <input type="text" id="sobrenome" name="sobrenome" required />
+          <input type="text" id="sobrenome" name="sobrenome"  />
         </div>
       </div>
 <!------------------------------------------------------------------>        
       <div class="coluna_1">
         <div class="email">  <!--EMAIL-->
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email"  />
         </div>
       </div>
 
@@ -37,15 +39,15 @@
         <div class="CPF"><!--CPF-->
           <label for="CPF" data-errormsg="">CPF:</label>
           <input type="text" id="CPF" name="CPF"
-          maxlength="14" required />
+          maxlength="14"  />
         </div>
       </div>
 <!------------------------------------------------------------------>
       <div class="coluna_1">
         <div class="gênero">  <!--GÊNERO-->
           <label for="gênero">Gênero:
-          <input type="radio" id="masculino" name="gênero" value="masculino" required > Masculino </input>
-          <input type="radio" id="feminino" name="gênero" value="feminino" required > Feminino </input>
+          <input type="radio" id="masculino" name="gênero" value="masculino"  > Masculino </input>
+          <input type="radio" id="feminino" name="gênero" value="feminino"  > Feminino </input>
           </label>
         </div>
       </div>
@@ -54,14 +56,14 @@
         <div class="nascimento">
               <!--DATA DE NASCIMENTO-->
           <label for="nascimento">Data de Nascimento:</label>
-          <input type="date" id="nascimento" name="nascimento" required />
+          <input type="date" id="nascimento" name="nascimento"  />
         </div>
       </div>
 <!------------------------------------------------------------------>
       <div class="coluna_1">
         <div class="endereço">  <!--ENDEREÇO-->
           <label for="endereço">Endereço:</label>
-          <input type="text" id="endereço" name="endereço" required />
+          <input type="text" id="endereço" name="endereço"  />
         </div>
       </div>
 
@@ -69,14 +71,14 @@
         <div class="celular">      <!--NÚMERO DE CELULAR-->
           <label for="celular">Número de Celular:</label>
           <input type="text" id="celular" name="celular"
-          maxlength="14" required />
+          maxlength="14"  />
         </div>
       </div>
 <!------------------------------------------------------------------>
       <div class="coluna_1">
         <div class="profissão">  <!--PROFISSÃO-->
           <label for="profissão">Profissão:</label>
-          <input type="text" id="profissão" name="profissão" required />
+          <input type="text" id="profissão" name="profissão"  />
         </div>
       </div>
 
@@ -93,7 +95,7 @@
       <div class="coluna_1">
         <div class="estado">  <!--ESTADO-->
           <label for="estado">Estado:</label>
-          <select id="estado" name="estado" required >
+          <select id="estado" name="estado"  >
           </select>
         </div>
       </div>
@@ -101,7 +103,7 @@
       <div class="coluna_1">
         <div class="cidade">      <!--CIDADE-->
           <label for="cidade">Cidade:</label>
-          <select id="cidade" name="cidade" required >
+          <select id="cidade" name="cidade"  >
           </select>
         </div>
       </div>
@@ -109,12 +111,14 @@
       <div class="coluna_2">
         <div class="senha">  <!--SENHA-->
           <label for="senha">Senha:</label>
-          <input type="password" id="senha" name="senha" required />
+          <input type="password" id="senha" name="senha"  />
+          <i class="far fa-eye" id="olho_senha" style="margin-left: -30px; cursor: pointer;"></i>
         </div>
 
         <div class="confirmação_senha"><!--CONFIRMAÇÃO DE SENHA-->
           <label for="confirmação_senha">Confirmação de Senha:</label>
-          <input type="password" id="confirmação_senha" name="confirmação_senha" required />
+          <input type="password" id="confirmação_senha" name="confirmação_senha"  />
+          <i class="far fa-eye" id="olho_confirmação_senha" style="margin-left: -30px; cursor: pointer;"></i>
         </div>
       </div>
     </div>
@@ -192,7 +196,7 @@
           <hr/>  
 
           <p class="aceito_termos">Aceito os termos e condições:
-              <input type="checkbox" required> <!--se aceita ou n as condições-->
+              <input type="checkbox" id="aceito_termos" > <!--se aceita ou n as condições-->
           </p>
           <button type="reset" id="limpar">Limpar</button> <!--botão para passar o vanish-->
           <button type="submit" id="enviar">Enviar</button> <!--botão para enviar o forms-->

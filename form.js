@@ -1,18 +1,7 @@
-/*
-https://www.youtube.com/watch?v=ikR9DsGMUMc&t=1177s&ab_channel=SteveGriffith-Prof3ssorSt3v3
-
-https://developer.mozilla.org/en-US/docs/Learn/Forms
-
-https://youtu.be/3bGQ7s0mnHY
-
-a alteração das cidades conforme o estado selecionado demora um pouquinho mas da pra perceber o delay
-
-usando localstorage
-
-*/
-
 let url_cidades = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/estadoSelecionado/municipios"
 let url_estados = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+//-------------------------------------------------------------------
+
 
 // máscara do CPF
 var cpf = document.getElementById("CPF")
@@ -48,22 +37,56 @@ celular.addEventListener('keypress', () => {
     }
 
 })
+
 //-------------------------------------------------------------------
 
 
+//olhinho da senha
+var olho_senha = document.querySelector('#olho_senha');
+var senha = document.querySelector('#senha');
+
+olho_senha.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = senha.getAttribute('type') === 'password' ? 'text' : 'password';
+    senha.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+//-------------------------------------------------------------------
+
+
+//olhinho da confirmação da senha
+const olho_confirmação_senha = document.querySelector('#olho_confirmação_senha');
+const confirmação_senha = document.querySelector('#confirmação_senha');
+
+olho_confirmação_senha.addEventListener('click', function (e) {
+    const type = confirmação_senha.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmação_senha.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+});
+
+//-------------------------------------------------------------------
+
+
+//função inicial
 const init = function(){
     lista_estados()
     lista_cidades()
     document.getElementById('enviar').addEventListener('click', send);
 }
 
-
 //-------------------------------------------------------------------
+
+
+//função que é chamada quando o botão de enviar é apertado
 const send = function(ev){
 
+    ev.preventDefault(); 
+    ev.stopPropagation();
     let fails = validate();
 
-    if(fails.length === 0){
+    if(fails.length == 0){
         //good to go
         //alert("O formulário foi enviado com sucesso.")
         var dict = {} //dicionário que armazena as respostas
@@ -99,29 +122,116 @@ const send = function(ev){
         let senha = document.getElementById('senha')
         dict['senha'] = senha.value
         dict = [dict]
-        //salvando o dicionário
-        localStorage.setItem('formulário de '+nome.value+' '+sobrenome.value, JSON.stringify(dict))
+        
         document.getElementById('formulário').submit()
+        localStorage.setItem('formulário de '+nome.value+' '+sobrenome.value, JSON.stringify(dict))
 
-        //document.getElementById('formulário').submit();
     }else{
-        //ev.preventDefault(); 
-        //ev.stopPropagation();
+        
         //there are some errors to display
         fails.forEach(function(obj){
             let field = document.getElementById(obj.input);
+            console.log(obj.msg)
             field.setCustomValidity(obj.msg);
             field.reportValidity();
         })
     }
 }
 //-------------------------------------------------------------------
-const validate = function(ev){
 
-    let failures = [];
+
+//essa é uma função auxiliar que também é chamada quando o botão enviar
+//é apertado
+const validate = function(ev){
+    
+    var failures = [];
+
+    //verificando se os campos obrigatórios estão preenchidos
+    //isso é útil para navegadores em que o required do html não funciona
+    var nome = document.getElementById("nome");
+    if(nome.value === ''){
+        failures.push({input:'nome', msg:'Preencha o nome.'})
+    }
+
+    var sobrenome = document.getElementById("sobrenome");
+    if(sobrenome.value === ''){
+        failures.push({input:'sobrenome', msg:'Preencha o sobrenome.'})
+    }
+
+    var email = document.getElementById("email");
+    if(email.value === ''){
+        failures.push({input:'email', msg:'Preencha o email.'})
+    }
+
+    var cpf = document.getElementById("CPF");
+    if(cpf.value === ''){
+        failures.push({input:'CPF', msg:'Preencha o CPF.'})
+    }
+      
+    var gêneros = document.querySelectorAll('input[name="gênero"]');
+    var selecionado = '';
+    for (var gênero of gêneros){
+        if (gênero.checked){
+            selecionado = gênero.value;
+            break;
+        }
+    }
+    if(selecionado === ''){
+        failures.push({input:'masculino', msg:'Preencha o gênero.'})
+    }
+
+    var nascimento = document.getElementById('nascimento');
+    if(nascimento.value === 'dd/mm/aaaa'){
+        failures.push({input:'nascimento', msg:'Preencha o nascimento.'})
+    }
+
+    var endereço = document.getElementById("endereço");
+    if(endereço.value === ''){
+        failures.push({input:'endereço', msg:'Preencha o endereço.'})
+    }
+
+    var celular = document.getElementById("celular");
+    if(celular.value === ''){
+        failures.push({input:'celular', msg:'Preencha o celular.'})
+    }
+
+    var profissão = document.getElementById("profissão");
+    if(profissão.value === ''){
+        failures.push({input:'profissão', msg:'Preencha a profissão.'})
+    }
+
+    var estado = document.getElementById("estado");
+    if(estado.value === ''){
+        failures.push({input:'estado', msg:'Preencha o estado.'})
+    }
+
+    var cidade = document.getElementById("cidade");
+    if(cidade.value === ''){
+        failures.push({input:'cidade', msg:'Preencha a cidade.'})
+    }
+
+    var senha = document.getElementById('senha');
+    if(senha.value === ''){
+        failures.push({input:'senha', msg:'Preencha a senha.'})
+    }
+
+    var confirmação_senha = document.getElementById('confirmação_senha');
+    if(confirmação_senha.value === ''){
+        failures.push({input:'confirmação_senha', msg:'Preencha a senha.'})
+    }
+
+    var aceito_termos = document.getElementById('aceito_termos');
+    if(!aceito_termos.checked){
+        failures.push({input:'aceito_termos', msg:'Aceite os termos.'})
+    }
+
+
+    //verificando se o email contém o @
+    if(!email.value.includes('@')){
+        failures.push({input:'email', msg:'Insira um email válido.'})
+    }
 
     //verificando se o cpf é válido
-    let cpf = document.getElementById("CPF");
     if(!(/[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[\-][0-9]{2}/.test(cpf.value))){
         if(cpf.value.length < 14){
             failures.push({input:'CPF', msg:'O CPF deve ter exatamente 11 números.'})
@@ -132,7 +242,6 @@ const validate = function(ev){
     }
 
     //verificando se o celular é válido
-    let celular = document.getElementById("celular");
     if(!(/[\(][0-9]{2}[\)][0-9]{5}[\-][0-9]{4}/.test(celular.value))){
         if(celular.value.length < 14){
             failures.push({input:'celular', msg:'O celular deve ter exatamente 11 números.'})
@@ -143,8 +252,6 @@ const validate = function(ev){
     }
 
     //verificando se ambas as senhas são iguais
-    let senha = document.getElementById('senha');
-    let confirmação_senha = document.getElementById('confirmação_senha');
     if(!(senha.value === confirmação_senha.value)){
         failures.push({input:'senha', msg:'Ambas as senhas devem ser iguais.'})
     }
@@ -197,6 +304,7 @@ const validate = function(ev){
         failures.push({input:'senha', msg:'A senha deve ser preenchida da seguinte forma: no mínimo 5 dígitos e no máximo 30, com no mínimo uma letra maiúscula, um número e um caractere especial.'})
     }
 
+
     //verificando se a data é válida
     function isValidDate(dateString){
         // First check for the pattern
@@ -223,11 +331,12 @@ const validate = function(ev){
         return day > 0 && day <= monthLength[month - 1];
     };
 
-    let nascimento = document.getElementById('nascimento')
 
     if(!isValidDate(nascimento.value)){
         failures.push({input:'nascimento', msg:'Insira uma data válida.'})
     }
+
+    //fim das validações
 
     //retornando as falhas
     return failures;
